@@ -1,1 +1,1 @@
-export * from "./_exports.tsx";
+export * from "./IoTDisplay.tsx";
