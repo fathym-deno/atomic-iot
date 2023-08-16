@@ -1,11 +1,10 @@
-import { ComponentChildren, JSX } from "../src.deps.ts";
-import { classSet } from "../utils/jsx.utils.tsx";
-import { Display, DisplayProps } from "./Display.tsx";
+import { ComponentChildren, Display, DisplayProps } from "../src.deps.ts";
 
-export interface IoTDisplayProps extends DisplayProps {
+export type IoTDisplayProps = DisplayProps & {
   icon: string;
+
   controls: ComponentChildren;
-}
+};
 
 export function IoTDisplay(props: IoTDisplayProps) {
   const { icon, title, controls, ...rest } = props;
@@ -13,6 +12,7 @@ export function IoTDisplay(props: IoTDisplayProps) {
   const header = (
     <div class="flex items-center">
       <div class="mr-2">{icon}</div>
+
       <div>{title}</div>
     </div>
   );
@@ -23,6 +23,7 @@ export function IoTDisplay(props: IoTDisplayProps) {
         <div class="flex-grow">{header}</div>
         <div>{controls}</div>
       </div>
+
       {props.children}
     </Display>
   );
