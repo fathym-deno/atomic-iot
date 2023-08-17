@@ -1,7 +1,7 @@
 import { ComponentChildren, Display, DisplayProps } from "../src.deps.ts";
 
 export type IoTDisplayProps = DisplayProps & {
-  icon: string;
+  icon: ComponentChildren;
 
   controls: ComponentChildren;
 };
@@ -11,7 +11,7 @@ export function IoTDisplay(props: IoTDisplayProps) {
 
   const header = (
     <div class="flex items-center">
-      <div class="mr-2">{icon}</div>
+      {icon}
 
       <div>{title}</div>
     </div>
