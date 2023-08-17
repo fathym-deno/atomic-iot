@@ -34,7 +34,7 @@ export function IoTDisplay(props: IoTDisplayProps) {
       <div class="flex flex-col md:flex-row text-center md:text-left h-64px">
         <div class="flex-grow">{header}</div>
 
-        <div>{controls}</div>
+        <div class="mx-auto">{controls}</div>
       </div>
 
       <div class="p-2 md:p-4">{props.children}</div>
