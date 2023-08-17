@@ -23,7 +23,14 @@ export function IoTDisplay(props: IoTDisplayProps) {
   );
 
   return (
-    <Display {...rest} class={classSet(props, "p-2")}>
+    <Display
+      {...rest}
+      class={classSet(
+        props,
+        "p-2",
+        "m-6 rounded focus:outline-none shadow-lg",
+      )}
+    >
       <div class="flex h-64px">
         <div class="flex-grow">{header}</div>
 
