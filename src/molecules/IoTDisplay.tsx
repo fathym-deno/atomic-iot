@@ -31,7 +31,7 @@ export function IoTDisplay(props: IoTDisplayProps) {
         "m-3 md:m-6 rounded focus:outline-none shadow-lg",
       )}
     >
-      <div class="flex flex-col md:flex-row h-64px">
+      <div class="flex flex-col md:flex-row text-center md:text-left h-64px">
         <div class="flex-grow">{header}</div>
 
         <div>{controls}</div>
