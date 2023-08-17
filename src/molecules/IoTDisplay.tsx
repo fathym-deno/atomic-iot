@@ -27,8 +27,8 @@ export function IoTDisplay(props: IoTDisplayProps) {
       {...rest}
       class={classSet(
         props,
-        "p-2",
-        "m-6 rounded focus:outline-none shadow-lg",
+        "p-2 md:p-4",
+        "m-3 md:m-6 rounded focus:outline-none shadow-lg",
       )}
     >
       <div class="flex h-64px">
@@ -37,7 +37,7 @@ export function IoTDisplay(props: IoTDisplayProps) {
         <div>{controls}</div>
       </div>
 
-      {props.children}
+      <div class="p-2 md:p-4">{props.children}</div>
     </Display>
   );
 }
