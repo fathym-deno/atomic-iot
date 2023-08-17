@@ -28,7 +28,7 @@ export function IoTDisplay(props: IoTDisplayProps) {
       class={classSet(
         props,
         "p-2 md:p-4",
-        "m-3 md:m-6 rounded focus:outline-none shadow-lg",
+        "rounded focus:outline-none shadow-lg",
       )}
     >
       <div class="flex flex-col md:flex-row text-center md:text-left h-64px">
