@@ -1,4 +1,9 @@
-import { ComponentChildren, Display, DisplayProps } from "../src.deps.ts";
+import {
+  classSet,
+  ComponentChildren,
+  Display,
+  DisplayProps,
+} from "../src.deps.ts";
 
 export type IoTDisplayProps = DisplayProps & {
   icon: ComponentChildren;
@@ -18,9 +23,10 @@ export function IoTDisplay(props: IoTDisplayProps) {
   );
 
   return (
-    <Display {...rest}>
-      <div class="flex">
+    <Display {...rest} class={classSet(props, "p-2")}>
+      <div class="flex h-64px">
         <div class="flex-grow">{header}</div>
+
         <div>{controls}</div>
       </div>
 
