@@ -1,9 +1,9 @@
 import { BaseRequest, BaseResponse } from "../src.deps.ts";
 
 export interface EnrollDeviceRequest extends BaseRequest {
-  AttestationOptions: JsonObject;
+  AttestationOptions: Record<string | number | symbol, unknown>;
   DeviceID: string;
-  EnrollmentOptions: JsonObject;
+  EnrollmentOptions: Record<string | number | symbol, unknown>;
 }
 
 export interface EnrollDeviceResponse extends BaseResponse {
@@ -13,16 +13,6 @@ export interface EnrollDeviceResponse extends BaseResponse {
 export interface DeviceInfo extends Record<string | number | symbol, unknown> {
   DeviceID: string;
   ConnectionString: string;
-}
-
-export class Pageable<T> {
-  Items: T[];
-  TotalRecords: number;
-
-  constructor() {
-    this.Items = [];
-    this.TotalRecords = 0;
-  }
 }
 
 export enum DeviceAttestationTypes {

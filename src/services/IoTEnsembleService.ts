@@ -1,11 +1,10 @@
+import { BaseResponse, BaseResponseModel, Pageable } from "../src.deps.ts";
 import {
-  BaseResponse,
   DeviceAttestationTypes,
   DeviceEnrollmentTypes,
   DeviceInfo,
   EnrollDeviceRequest,
   EnrollDeviceResponse,
-  Pageable,
 } from "./iot-ensemble-service.models.ts";
 
 export class IoTEnsembleService {
@@ -20,7 +19,6 @@ export class IoTEnsembleService {
     entLookup: string,
     attestationType: DeviceAttestationTypes,
     enrollmentType: DeviceEnrollmentTypes,
-    envLookup: string | null = null,
   ): Promise<EnrollDeviceResponse> {
     const url =
       `${this.baseUrl}/iot/${entLookup}/devices/enroll/${attestationType}/${enrollmentType}`;
@@ -43,9 +41,8 @@ export class IoTEnsembleService {
   public async issueDeviceSASToken(
     entLookup: string,
     deviceName: string,
-    expiryInSeconds: number = 3600,
-    envLookup: string | null = null,
-  ): Promise<BaseResponse<string>> {
+    expiryInSeconds = 3600,
+  ): Promise<BaseResponseModel<string>> {
     const url =
       `${this.baseUrl}/iot/${entLookup}/devices/${deviceName}?expiryInSeconds=${expiryInSeconds}`;
 
@@ -62,9 +59,8 @@ export class IoTEnsembleService {
 
   public async listEnrolledDevices(
     entLookup: string,
-    page: number = 1,
-    pageSize: number = 100,
-    envLookup: string | null = null,
+    page = 1,
+    pageSize = 100,
   ): Promise<BaseResponse<Pageable<DeviceInfo>>> {
     const url =
       `${this.baseUrl}/iot/${entLookup}/devices/list?page=${page}&pageSize=${pageSize}`;
@@ -83,7 +79,6 @@ export class IoTEnsembleService {
   public async revokeDeviceEnrollment(
     deviceId: string,
     entLookup: string,
-    envLookup: string | null = null,
   ): Promise<BaseResponse> {
     const url = `${this.baseUrl}/iot/${entLookup}/devices/${deviceId}/revoke`;
 
@@ -101,11 +96,10 @@ export class IoTEnsembleService {
   }
 
   public async sendDeviceMessage(
-    payload: MetadataModel,
+    payload: Record<string | number | symbol, unknown>,
     entLookup: string,
     deviceName: string,
-    connStrType: string = "primary",
-    envLookup: string | null = null,
+    connStrType = "primary",
   ): Promise<BaseResponse> {
     const url =
       `${this.baseUrl}/iot/${entLookup}/devices/from/${deviceName}/send?connStrType=${connStrType}`;
@@ -126,10 +120,9 @@ export class IoTEnsembleService {
   }
 
   public async sendCloudMessage(
-    request: MetadataModel,
+    request: Record<string | number | symbol, unknown>,
     entLookup: string,
     deviceName: string,
-    envLookup: string | null = null,
   ): Promise<BaseResponse> {
     const url =
       `${this.baseUrl}/iot/${entLookup}/devices/to/${deviceName}/send`;
