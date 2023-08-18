@@ -1,4 +1,6 @@
-export interface EnrollDeviceRequest {
+import { BaseRequest, BaseResponse } from "../src.deps.ts";
+
+export interface EnrollDeviceRequest extends BaseRequest {
   Device: DeviceInfo;
 }
 
@@ -13,13 +15,7 @@ export interface DeviceInfo {
   ConnectionString?: string;
   DeviceID?: string;
   DeviceName?: string;
-  LastStatusUpdate?: Status;
-}
-
-export interface BaseResponse<T = any> {
-  Data?: T;
-  Error?: ErrorContext;
-  Status?: Status;
+  // LastStatusUpdate?: Status;
 }
 
 export interface Pageable<T> {
@@ -39,28 +35,11 @@ export interface ErrorContext {
 }
 
 export enum DeviceAttestationTypes {
-  SymmetricKey = 'symmetrickey',
-  X509 = 'x509',
+  SymmetricKey = "symmetrickey",
+  X509 = "x509",
 }
 
 export enum DeviceEnrollmentTypes {
-  Individual = 'individual',
-  Group = 'group',
-}
-
-export interface MetadataModel {
-  DeviceData?: { [prop: string]: any };
-  DeviceID?: string;
-  DeviceType?: string;
-  ID?: string;
-  SensorMetadata?: { [prop: string]: any };
-  SensorReadings?: { [prop: string]: any };
-  Timestamp?: Date;
-  TotalPayloads?: number;
-  Version?: string;
-}
-
-export interface Status {
-  Code?: number;
-  Message?: string;
+  Individual = "individual",
+  Group = "group",
 }
