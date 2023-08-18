@@ -1,45 +1,37 @@
 import { BaseRequest, BaseResponse } from "../src.deps.ts";
 
 export interface EnrollDeviceRequest extends BaseRequest {
-  Device: DeviceInfo;
+  AttestationOptions: JsonObject;
+  DeviceID: string;
+  EnrollmentOptions: JsonObject;
 }
 
 export interface EnrollDeviceResponse extends BaseResponse {
   Device: DeviceInfo;
 }
 
-export interface DeviceInfo {
-  ActivelySendingData?: boolean;
-  AuthenticationType?: string;
-  CloudToDeviceMessageCount?: number;
-  ConnectionString?: string;
-  DeviceID?: string;
-  DeviceName?: string;
-  // LastStatusUpdate?: Status;
+export interface DeviceInfo extends Record<string | number | symbol, unknown> {
+  DeviceID: string;
+  ConnectionString: string;
 }
 
-export interface Pageable<T> {
+export class Pageable<T> {
   Items: T[];
-  Page: number;
-  PageSize: number;
-  TotalItems: number;
-  TotalPages: number;
-}
+  TotalRecords: number;
 
-export interface ErrorContext {
-  ActionPath?: string;
-  ActionTarget?: string;
-  ActionText?: string;
-  Message?: string;
-  Title?: string;
+  constructor() {
+    this.Items = [];
+    this.TotalRecords = 0;
+  }
 }
 
 export enum DeviceAttestationTypes {
-  SymmetricKey = "symmetrickey",
-  X509 = "x509",
+  SymmetricKey = 0,
+  TrustedPlatformModule = 1,
+  X509Certificate = 2,
 }
 
 export enum DeviceEnrollmentTypes {
-  Individual = "individual",
-  Group = "group",
+  Group = 0,
+  Individual = 1,
 }
