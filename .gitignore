@@ -1,7 +1,0 @@
-.env
-cov/
-build/
-coverage/
-lcov/
-target/
-tailwind.config.js
