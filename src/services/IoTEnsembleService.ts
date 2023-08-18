@@ -61,7 +61,7 @@ export class IoTEnsembleService {
     entLookup: string,
     page = 1,
     pageSize = 100,
-  ): Promise<BaseResponse<Pageable<DeviceInfo>>> {
+  ): Promise<BaseResponseModel<Pageable<DeviceInfo>>> {
     const url =
       `${this.baseUrl}/iot/${entLookup}/devices/list?page=${page}&pageSize=${pageSize}`;
 
