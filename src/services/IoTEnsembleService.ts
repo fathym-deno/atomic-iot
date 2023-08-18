@@ -14,7 +14,7 @@ export class IoTEnsembleService {
     this.baseUrl = baseUrl;
   }
 
-  public async EnrollDevice(
+  public async enrollDevice(
     request: EnrollDeviceRequest,
     entLookup: string,
     attestationType: DeviceAttestationTypes,
@@ -38,7 +38,7 @@ export class IoTEnsembleService {
     return response.json();
   }
 
-  public async IssueDeviceSASToken(
+  public async issueDeviceSASToken(
     entLookup: string,
     deviceName: string,
     expiryInSeconds = 3600,
@@ -57,7 +57,7 @@ export class IoTEnsembleService {
     return response.json();
   }
 
-  public async ListEnrolledDevices(
+  public async listEnrolledDevices(
     entLookup: string,
     page = 1,
     pageSize = 100,
@@ -76,7 +76,7 @@ export class IoTEnsembleService {
     return response.json();
   }
 
-  public async RevokeDeviceEnrollment(
+  public async revokeDeviceEnrollment(
     deviceId: string,
     entLookup: string,
   ): Promise<BaseResponse> {
@@ -95,7 +95,7 @@ export class IoTEnsembleService {
     return response.json();
   }
 
-  public async SendDeviceMessage(
+  public async sendDeviceMessage(
     payload: Record<string | number | symbol, unknown>,
     entLookup: string,
     deviceName: string,
@@ -119,7 +119,7 @@ export class IoTEnsembleService {
     return response.json();
   }
 
-  public async SendCloudMessage(
+  public async sendCloudMessage(
     request: Record<string | number | symbol, unknown>,
     entLookup: string,
     deviceName: string,
