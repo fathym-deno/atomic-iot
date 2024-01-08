@@ -1,1 +1,1 @@
-export const safelist = ["flex items-center"]
+export const safelist = ['flex items-center'];
