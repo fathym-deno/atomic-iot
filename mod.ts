@@ -1,1 +1,1 @@
-export * from "./src/molecules/_exports.tsx";
+export * from "./src/_exports.ts";
