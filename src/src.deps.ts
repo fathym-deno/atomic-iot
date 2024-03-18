@@ -1,5 +1,8 @@
-export { type ComponentChildren, type JSX } from "preact";
-export { useEffect, useState } from "preact/hooks";
+export {
+  type ComponentChildren,
+  type JSX,
+} from "https://esm.sh/preact@10.19.2";
+export { useEffect, useState } from "https://esm.sh/preact@10.19.2/hooks";
 
 export * from "https://deno.land/x/fathym_common@v0.0.172/mod.ts";
 
