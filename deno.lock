@@ -17,5 +17,9 @@
       }
     }
   },
-  "remote": {}
+  "remote": {
+    "https://esm.sh/preact@10.20.1/jsx-runtime": "0685dab9b7614e166950b5d5e969c90c9c441c3d2d051b5da8b0d9387b6db6b6",
+    "https://esm.sh/stable/preact@10.20.1/denonext/jsx-runtime.js": "5875f10c83338dd21c3c30ed55c77f3c79a6f37e1ea1939e2e071cc52b9805f0",
+    "https://esm.sh/stable/preact@10.20.1/denonext/preact.mjs": "eed417f1653718f3b8b4b5d1b61ad66967fc02ed2cf86f7589ce0c813c8ed0b6"
+  }
 }
